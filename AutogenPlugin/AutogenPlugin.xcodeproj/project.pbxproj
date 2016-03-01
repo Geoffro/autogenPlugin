@@ -7,101 +7,101 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		465E718E889CD5D26FC25A90 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7BE3AB201BB0262B94CDED3 /* libPods.a */; };
-		6C5B7E381C827A000087F8AB /* AutogenPlugin.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 6C5B7E371C827A000087F8AB /* AutogenPlugin.xcscheme */; };
-		6C5B7E3A1C827A000087F8AB /* AutogenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5B7E391C827A000087F8AB /* AutogenPlugin.swift */; };
-		6C5B7E3C1C827A000087F8AB /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5B7E3B1C827A000087F8AB /* NSObject_Extension.swift */; };
+		303C5055FE40E62410E3DE9D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 102FA1DC33A81C1D26AF13FC /* libPods.a */; };
+		6CFEC12A1C8519E1009A2096 /* AutogenPlugin.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 6CFEC1291C8519E1009A2096 /* AutogenPlugin.xcscheme */; };
+		6CFEC12C1C8519E1009A2096 /* AutogenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFEC12B1C8519E1009A2096 /* AutogenPlugin.swift */; };
+		6CFEC12E1C8519E1009A2096 /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFEC12D1C8519E1009A2096 /* NSObject_Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6C5B7E331C8279FF0087F8AB /* AutogenPlugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutogenPlugin.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C5B7E371C827A000087F8AB /* AutogenPlugin.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = AutogenPlugin.xcscheme; path = AutogenPlugin.xcodeproj/xcshareddata/xcschemes/AutogenPlugin.xcscheme; sourceTree = SOURCE_ROOT; };
-		6C5B7E391C827A000087F8AB /* AutogenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutogenPlugin.swift; sourceTree = "<group>"; };
-		6C5B7E3B1C827A000087F8AB /* NSObject_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject_Extension.swift; sourceTree = "<group>"; };
-		6C5B7E3D1C827A000087F8AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B9960DF69A46673A77A16DE4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "AutogenPlugin/Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		D5B5A25379EFDB543AB50DE5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "AutogenPlugin/Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		E7BE3AB201BB0262B94CDED3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		102FA1DC33A81C1D26AF13FC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		10542D7018E26ACFEAAA6BB0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6CFEC1251C8519E1009A2096 /* AutogenPlugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutogenPlugin.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CFEC1291C8519E1009A2096 /* AutogenPlugin.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = AutogenPlugin.xcscheme; path = AutogenPlugin.xcodeproj/xcshareddata/xcschemes/AutogenPlugin.xcscheme; sourceTree = SOURCE_ROOT; };
+		6CFEC12B1C8519E1009A2096 /* AutogenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutogenPlugin.swift; sourceTree = "<group>"; };
+		6CFEC12D1C8519E1009A2096 /* NSObject_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject_Extension.swift; sourceTree = "<group>"; };
+		6CFEC12F1C8519E1009A2096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F18A6A3B37D05FAD34204E1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E02130F2FC70335DC80B36D7 /* Frameworks */ = {
+		15262B9DFE1869B839FABAB5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				465E718E889CD5D26FC25A90 /* libPods.a in Frameworks */,
+				303C5055FE40E62410E3DE9D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		216FF7E845BB52A1D613D200 /* Pods */ = {
+		107D7FCF4B62C870585C5357 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D5B5A25379EFDB543AB50DE5 /* Pods.debug.xcconfig */,
-				B9960DF69A46673A77A16DE4 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		6876AC9A634256E5F5CAB372 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E7BE3AB201BB0262B94CDED3 /* libPods.a */,
+				102FA1DC33A81C1D26AF13FC /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6C5B7E2B1C8279FF0087F8AB = {
+		6CFEC11D1C8519E1009A2096 = {
 			isa = PBXGroup;
 			children = (
-				6C5B7E351C8279FF0087F8AB /* AutogenPlugin */,
-				6C5B7E341C8279FF0087F8AB /* Products */,
-				216FF7E845BB52A1D613D200 /* Pods */,
-				6876AC9A634256E5F5CAB372 /* Frameworks */,
+				6CFEC1271C8519E1009A2096 /* AutogenPlugin */,
+				6CFEC1261C8519E1009A2096 /* Products */,
+				C5D04107D3CBB80D83B09EB0 /* Pods */,
+				107D7FCF4B62C870585C5357 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		6C5B7E341C8279FF0087F8AB /* Products */ = {
+		6CFEC1261C8519E1009A2096 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C5B7E331C8279FF0087F8AB /* AutogenPlugin.xcplugin */,
+				6CFEC1251C8519E1009A2096 /* AutogenPlugin.xcplugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6C5B7E351C8279FF0087F8AB /* AutogenPlugin */ = {
+		6CFEC1271C8519E1009A2096 /* AutogenPlugin */ = {
 			isa = PBXGroup;
 			children = (
-				6C5B7E391C827A000087F8AB /* AutogenPlugin.swift */,
-				6C5B7E3B1C827A000087F8AB /* NSObject_Extension.swift */,
-				6C5B7E3D1C827A000087F8AB /* Info.plist */,
-				6C5B7E361C827A000087F8AB /* Supporting Files */,
+				6CFEC12B1C8519E1009A2096 /* AutogenPlugin.swift */,
+				6CFEC12D1C8519E1009A2096 /* NSObject_Extension.swift */,
+				6CFEC12F1C8519E1009A2096 /* Info.plist */,
+				6CFEC1281C8519E1009A2096 /* Supporting Files */,
 			);
 			path = AutogenPlugin;
 			sourceTree = "<group>";
 		};
-		6C5B7E361C827A000087F8AB /* Supporting Files */ = {
+		6CFEC1281C8519E1009A2096 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6C5B7E371C827A000087F8AB /* AutogenPlugin.xcscheme */,
+				6CFEC1291C8519E1009A2096 /* AutogenPlugin.xcscheme */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C5D04107D3CBB80D83B09EB0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7F18A6A3B37D05FAD34204E1 /* Pods.debug.xcconfig */,
+				10542D7018E26ACFEAAA6BB0 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6C5B7E321C8279FF0087F8AB /* AutogenPlugin */ = {
+		6CFEC1241C8519E1009A2096 /* AutogenPlugin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C5B7E401C827A000087F8AB /* Build configuration list for PBXNativeTarget "AutogenPlugin" */;
+			buildConfigurationList = 6CFEC1321C8519E1009A2096 /* Build configuration list for PBXNativeTarget "AutogenPlugin" */;
 			buildPhases = (
-				3A4776E897CB9676CA8E9A33 /* Check Pods Manifest.lock */,
-				6C5B7E301C8279FF0087F8AB /* Sources */,
-				6C5B7E311C8279FF0087F8AB /* Resources */,
-				E02130F2FC70335DC80B36D7 /* Frameworks */,
-				6FBE7ECB8B84C9146F99B00E /* Copy Pods Resources */,
+				9F92AD4005B58F7FA1292945 /* Check Pods Manifest.lock */,
+				6CFEC1221C8519E1009A2096 /* Sources */,
+				6CFEC1231C8519E1009A2096 /* Resources */,
+				15262B9DFE1869B839FABAB5 /* Frameworks */,
+				78D7039B4E7E7ABC2B11BF9A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -109,54 +109,69 @@
 			);
 			name = AutogenPlugin;
 			productName = AutogenPlugin;
-			productReference = 6C5B7E331C8279FF0087F8AB /* AutogenPlugin.xcplugin */;
+			productReference = 6CFEC1251C8519E1009A2096 /* AutogenPlugin.xcplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6C5B7E2C1C8279FF0087F8AB /* Project object */ = {
+		6CFEC11E1C8519E1009A2096 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Geoff;
 				TargetAttributes = {
-					6C5B7E321C8279FF0087F8AB = {
+					6CFEC1241C8519E1009A2096 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 				};
 			};
-			buildConfigurationList = 6C5B7E2F1C8279FF0087F8AB /* Build configuration list for PBXProject "AutogenPlugin" */;
+			buildConfigurationList = 6CFEC1211C8519E1009A2096 /* Build configuration list for PBXProject "AutogenPlugin" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 6C5B7E2B1C8279FF0087F8AB;
-			productRefGroup = 6C5B7E341C8279FF0087F8AB /* Products */;
+			mainGroup = 6CFEC11D1C8519E1009A2096;
+			productRefGroup = 6CFEC1261C8519E1009A2096 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C5B7E321C8279FF0087F8AB /* AutogenPlugin */,
+				6CFEC1241C8519E1009A2096 /* AutogenPlugin */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6C5B7E311C8279FF0087F8AB /* Resources */ = {
+		6CFEC1231C8519E1009A2096 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C5B7E381C827A000087F8AB /* AutogenPlugin.xcscheme in Resources */,
+				6CFEC12A1C8519E1009A2096 /* AutogenPlugin.xcscheme in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3A4776E897CB9676CA8E9A33 /* Check Pods Manifest.lock */ = {
+		78D7039B4E7E7ABC2B11BF9A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F92AD4005B58F7FA1292945 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -171,37 +186,22 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		6FBE7ECB8B84C9146F99B00E /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/AutogenPlugin/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6C5B7E301C8279FF0087F8AB /* Sources */ = {
+		6CFEC1221C8519E1009A2096 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C5B7E3A1C827A000087F8AB /* AutogenPlugin.swift in Sources */,
-				6C5B7E3C1C827A000087F8AB /* NSObject_Extension.swift in Sources */,
+				6CFEC12C1C8519E1009A2096 /* AutogenPlugin.swift in Sources */,
+				6CFEC12E1C8519E1009A2096 /* NSObject_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		6C5B7E3E1C827A000087F8AB /* Debug */ = {
+		6CFEC1301C8519E1009A2096 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -241,7 +241,7 @@
 			};
 			name = Debug;
 		};
-		6C5B7E3F1C827A000087F8AB /* Release */ = {
+		6CFEC1311C8519E1009A2096 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -274,9 +274,9 @@
 			};
 			name = Release;
 		};
-		6C5B7E411C827A000087F8AB /* Debug */ = {
+		6CFEC1331C8519E1009A2096 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5B5A25379EFDB543AB50DE5 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 7F18A6A3B37D05FAD34204E1 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
@@ -292,9 +292,9 @@
 			};
 			name = Debug;
 		};
-		6C5B7E421C827A000087F8AB /* Release */ = {
+		6CFEC1341C8519E1009A2096 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9960DF69A46673A77A16DE4 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 10542D7018E26ACFEAAA6BB0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
@@ -313,25 +313,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6C5B7E2F1C8279FF0087F8AB /* Build configuration list for PBXProject "AutogenPlugin" */ = {
+		6CFEC1211C8519E1009A2096 /* Build configuration list for PBXProject "AutogenPlugin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6C5B7E3E1C827A000087F8AB /* Debug */,
-				6C5B7E3F1C827A000087F8AB /* Release */,
+				6CFEC1301C8519E1009A2096 /* Debug */,
+				6CFEC1311C8519E1009A2096 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C5B7E401C827A000087F8AB /* Build configuration list for PBXNativeTarget "AutogenPlugin" */ = {
+		6CFEC1321C8519E1009A2096 /* Build configuration list for PBXNativeTarget "AutogenPlugin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6C5B7E411C827A000087F8AB /* Debug */,
-				6C5B7E421C827A000087F8AB /* Release */,
+				6CFEC1331C8519E1009A2096 /* Debug */,
+				6CFEC1341C8519E1009A2096 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6C5B7E2C1C8279FF0087F8AB /* Project object */;
+	rootObject = 6CFEC11E1C8519E1009A2096 /* Project object */;
 }
