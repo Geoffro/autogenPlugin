@@ -11,8 +11,12 @@ var sharedPlugin: AutogenPlugin?
 
 class AutogenPlugin: NSObject
 {
-    var bundle: NSBundle
+    var      bundle : NSBundle
     lazy var center = NSNotificationCenter.defaultCenter()
+
+    var      autogenFile     : NSFileHandle!
+    var      autogenFilePath : String         = "testFile.swift"
+    var      projectRoot     : String!
 
     init(bundle: NSBundle)
     {
@@ -36,21 +40,59 @@ class AutogenPlugin: NSObject
     {
         removeObserver()
 
-        let item = NSApp.mainMenu!.itemWithTitle("Edit")
+        let item = NSApp.mainMenu!.itemWithTitle("Product")
 
         if item != nil
         {
-            let actionMenuItem = NSMenuItem(title:"Do Action", action:"doMenuAction", keyEquivalent:"")
+            let actionMenuItem = NSMenuItem(title:"Sync Build", action:"doMenuAction", keyEquivalent:"")
             actionMenuItem.target = self
             item!.submenu!.addItem(NSMenuItem.separatorItem())
             item!.submenu!.addItem(actionMenuItem)
         }
     }
 
+    func getWorkSpacePath() -> String
+    {
+        var workspacePath : String! = ""
+
+        if let workspaceController = NSClassFromString("IDEWorkspaceWindowController") as? NSObject.Type
+        {
+            let windowControllers = workspaceController.valueForKey("workspaceWindowControllers") as? [NSObject]
+
+            for windowController in windowControllers!
+            {
+                if (windowController.valueForKey("window")!.isEqual(NSApp.keyWindow))
+                {
+                    let workSpace = windowController.valueForKey("_workspace")
+                    let rFp       = workSpace!.valueForKey("representingFilePath")!
+                    workspacePath = rFp.valueForKey("_pathString") as! String
+                    break;
+                }
+            }
+        }
+
+        return workspacePath
+    }
+
     func doMenuAction()
     {
-        let error = NSError(domain: "Hello World!", code:42, userInfo:nil)
-        NSAlert(error: error).runModal()
+        print(getWorkSpacePath())
+
+        print(autogenFilePath)
+        let fullPath = "\(getWorkSpacePath())/\(autogenFilePath)"
+        print(fullPath)
+        if let autogenFile = NSFileHandle(forWritingAtPath : fullPath)
+        {
+            autogenFile.writeData(("test data" as
+                NSString).dataUsingEncoding(NSUTF8StringEncoding)!)
+
+            autogenFile.closeFile()
+            print("Write to file")
+        }
+        else
+        {
+            print("Failed to open file")
+        }
     }
 }
 
