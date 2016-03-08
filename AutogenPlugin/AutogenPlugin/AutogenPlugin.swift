@@ -53,7 +53,7 @@ class AutogenPlugin: NSObject
 
     func getWorkSpacePath() -> String
     {
-        var workspacePath : String! = ""
+        var workspacePath : NSString! = ""
 
         if let workspaceController = NSClassFromString("IDEWorkspaceWindowController") as? NSObject.Type
         {
@@ -65,22 +65,21 @@ class AutogenPlugin: NSObject
                 {
                     let workSpace = windowController.valueForKey("_workspace")
                     let rFp       = workSpace!.valueForKey("representingFilePath")!
-                    workspacePath = rFp.valueForKey("_pathString") as! String
+                    workspacePath = rFp.valueForKey("_pathString") as! NSString
                     break;
                 }
             }
         }
 
-        return workspacePath
+        return workspacePath.stringByDeletingLastPathComponent as String
     }
 
     func doMenuAction()
     {
-        print(getWorkSpacePath())
-
-        print(autogenFilePath)
         let fullPath = "\(getWorkSpacePath())/\(autogenFilePath)"
+
         print(fullPath)
+
         if let autogenFile = NSFileHandle(forWritingAtPath : fullPath)
         {
             autogenFile.writeData(("test data" as
