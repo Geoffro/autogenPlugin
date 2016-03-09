@@ -10,8 +10,8 @@ import Foundation
 
 struct ProjectItems
 {
-    let StoryboardDir    = "Base.lproj";
-    let StoryboardName   = "Main.storyboard";
-    let ImgDir           = "Assets.xcassets";
+    static let StoryboardDir    = "Base.lproj";
+    static let StoryboardName   = "Main.storyboard";
+    static let ImgDir           = "Assets.xcassets";
 };
 

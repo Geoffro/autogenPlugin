@@ -14,11 +14,12 @@ class AutogenPlugin: NSObject
     var      bundle : NSBundle
     lazy var center = NSNotificationCenter.defaultCenter()
 
-    var      autogenFile     : NSFileHandle!
-    var      autogenFileName : String         = "testFile.swift"
-    var      autogenFilePath : String!
-    var      sourceDir       : String!
-    var      projectPath     : NSString!
+    var      autogenFile             : NSFileHandle!
+    var      autogenFileName         : String         = "testFile.swift"
+    var      autogenFilePath         : String!
+    var      sourceDir               : String!
+    var      projectPath             : NSString!
+    var      fullStoryboardPath      : String!
 
     init(bundle : NSBundle)
     {
@@ -73,6 +74,11 @@ class AutogenPlugin: NSObject
         }
     }
 
+    func buildPath(basePath : String, file : String) -> String
+    {
+        return "\(basePath)/\(file)"
+    }
+
     // Func to get the path to the directories for the various items needed.
     func resolveResourcePaths()
     {
@@ -80,14 +86,21 @@ class AutogenPlugin: NSObject
 
         self.sourceDir = self.projectPath.stringByDeletingPathExtension as String
 
-        self.autogenFilePath = "\(self.sourceDir)/\(autogenFileName)"
+        self.fullStoryboardPath = self.buildPath(self.sourceDir, file : ProjectItems.StoryboardDir)
+        self.fullStoryboardPath = self.buildPath(self.fullStoryboardPath, file : ProjectItems.StoryboardName)
+
+        self.autogenFilePath = self.buildPath(self.sourceDir, file : self.autogenFileName)
     }
 
     func syncAutogenData()
     {
         resolveResourcePaths()
 
-        let text = "test data"
+        let text     = "test data"
+
+        let sbParser = StoryboardParser(path : self.fullStoryboardPath)
+
+        sbParser.parse()
 
         do
         {
