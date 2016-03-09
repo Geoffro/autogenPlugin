@@ -44,14 +44,15 @@ class AutogenPlugin: NSObject
 
         if item != nil
         {
-            let actionMenuItem = NSMenuItem(title:"Sync Build", action:"doMenuAction", keyEquivalent:"")
+            let actionMenuItem = NSMenuItem(title:"Sync Build", action:"syncAutogenData", keyEquivalent:"")
             actionMenuItem.target = self
             item!.submenu!.addItem(NSMenuItem.separatorItem())
             item!.submenu!.addItem(actionMenuItem)
         }
     }
 
-    func getWorkSpacePath() -> String
+    // Func to get the path to the directory where all the source is stored.
+    func getSourceDirPath() -> String
     {
         var workspacePath : NSString! = ""
 
@@ -74,9 +75,9 @@ class AutogenPlugin: NSObject
         return workspacePath.stringByDeletingPathExtension as String
     }
 
-    func doMenuAction()
+    func syncAutogenData()
     {
-        let fullPath = "\(getWorkSpacePath())/\(autogenFilePath)"
+        let fullPath = "\(getSourceDirPath())/\(autogenFilePath)"
 
         print(fullPath)
 
