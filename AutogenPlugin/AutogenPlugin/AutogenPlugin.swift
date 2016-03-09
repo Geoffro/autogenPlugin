@@ -71,7 +71,7 @@ class AutogenPlugin: NSObject
             }
         }
 
-        return workspacePath.stringByDeletingLastPathComponent as String
+        return workspacePath.stringByDeletingPathExtension as String
     }
 
     func doMenuAction()
@@ -80,17 +80,15 @@ class AutogenPlugin: NSObject
 
         print(fullPath)
 
-        if let autogenFile = NSFileHandle(forWritingAtPath : fullPath)
-        {
-            autogenFile.writeData(("test data" as
-                NSString).dataUsingEncoding(NSUTF8StringEncoding)!)
+        let text = "test data"
 
-            autogenFile.closeFile()
-            print("Write to file")
-        }
-        else
+        do
         {
-            print("Failed to open file")
+            try text.writeToFile(fullPath, atomically : false, encoding : NSUTF8StringEncoding)
+        }
+        catch
+        {
+            print("Error: Failed to write file")
         }
     }
 }
