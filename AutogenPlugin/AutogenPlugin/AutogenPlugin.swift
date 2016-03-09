@@ -15,10 +15,12 @@ class AutogenPlugin: NSObject
     lazy var center = NSNotificationCenter.defaultCenter()
 
     var      autogenFile     : NSFileHandle!
-    var      autogenFilePath : String         = "testFile.swift"
-    var      projectRoot     : String!
+    var      autogenFileName : String         = "testFile.swift"
+    var      autogenFilePath : String!
+    var      sourceDir       : String!
+    var      projectPath     : NSString!
 
-    init(bundle: NSBundle)
+    init(bundle : NSBundle)
     {
         self.bundle = bundle
 
@@ -51,11 +53,9 @@ class AutogenPlugin: NSObject
         }
     }
 
-    // Func to get the path to the directory where all the source is stored.
-    func getSourceDirPath() -> String
+    // Gets the workspace .xcodeproj
+    func getProjectPath()
     {
-        var workspacePath : NSString! = ""
-
         if let workspaceController = NSClassFromString("IDEWorkspaceWindowController") as? NSObject.Type
         {
             let windowControllers = workspaceController.valueForKey("workspaceWindowControllers") as? [NSObject]
@@ -64,28 +64,34 @@ class AutogenPlugin: NSObject
             {
                 if (windowController.valueForKey("window")!.isEqual(NSApp.keyWindow))
                 {
-                    let workSpace = windowController.valueForKey("_workspace")
-                    let rFp       = workSpace!.valueForKey("representingFilePath")!
-                    workspacePath = rFp.valueForKey("_pathString") as! NSString
+                    let workSpace       = windowController.valueForKey("_workspace")
+                    let rFp             = workSpace!.valueForKey("representingFilePath")!
+                    self.projectPath    = rFp.valueForKey("_pathString") as! NSString
                     break;
                 }
             }
         }
+    }
 
-        return workspacePath.stringByDeletingPathExtension as String
+    // Func to get the path to the directories for the various items needed.
+    func resolveResourcePaths()
+    {
+        getProjectPath()
+
+        self.sourceDir = self.projectPath.stringByDeletingPathExtension as String
+
+        self.autogenFilePath = "\(self.sourceDir)/\(autogenFileName)"
     }
 
     func syncAutogenData()
     {
-        let fullPath = "\(getSourceDirPath())/\(autogenFilePath)"
-
-        print(fullPath)
+        resolveResourcePaths()
 
         let text = "test data"
 
         do
         {
-            try text.writeToFile(fullPath, atomically : false, encoding : NSUTF8StringEncoding)
+            try text.writeToFile(self.autogenFilePath, atomically : false, encoding : NSUTF8StringEncoding)
         }
         catch
         {
