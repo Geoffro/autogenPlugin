@@ -14,4 +14,3 @@ struct ProjectItems
     static let StoryboardName   = "Main.storyboard";
     static let ImgDir           = "Assets.xcassets";
 };
-

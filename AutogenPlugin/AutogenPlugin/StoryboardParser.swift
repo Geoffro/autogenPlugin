@@ -12,12 +12,14 @@ import Foundation
 struct SBE
 {
     static let viewController = "viewController"
+    static let segue          = "segue"
 }
 
 // Storyboard attribute constants
 struct SBA
 {
     static let storyboardIdentifier = "storyboardIdentifier"
+    static let segueIdentifier      = "identifier"
 }
 
 class StoryboardParser
@@ -25,7 +27,9 @@ class StoryboardParser
     NSObject,
     NSXMLParserDelegate
 {
-    var storyboardIDs = [String]()
+    var storyboardIDs  = [String]()
+    var namedSegues    = [String]()
+
     var parser                     : NSXMLParser!
 
     init(path : String)
@@ -41,9 +45,7 @@ class StoryboardParser
     {
         parser.parse()
 
-#if DEBUG
-        printParseData()
-#endif // DEBUG
+        printParsedData()
     }
 
     func parser(parser                      : NSXMLParser,
@@ -59,16 +61,44 @@ class StoryboardParser
                 storyboardIDs.append(id)
             }
         }
+        else if elementName == SBE.segue
+        {
+            if let id = attributeDict[SBA.segueIdentifier]
+            {
+                namedSegues.append(id)
+            }
+        }
     }
 
-#if DEBUG
     // Dump all the data collected.
     func printParsedData()
     {
-        for (_, id) in self.storyboardIDs.enumerate()
+        if self.storyboardIDs.count > 0
         {
-            print(id)
+            print("Storyboard IDs:\n")
+
+            for (_, id) in self.storyboardIDs.enumerate()
+            {
+                print(id)
+            }
+        }
+        else
+        {
+            print("No Storyboard IDs found.\n")
+        }
+
+        if self.namedSegues.count > 0
+        {
+            print("Named Segues:\n")
+
+            for (_, id) in self.namedSegues.enumerate()
+            {
+                print(id)
+            }
+        }
+        else
+        {
+            print("No Named segues found.\n")
         }
     }
-#endif // DEBUG
 }
