@@ -19,7 +19,7 @@ class AutogenPlugin: NSObject
     var      autogenFilePath         : String!
     var      sourceDir               : String!
     var      projectPath             : NSString!
-    var      fullStoryboardPath      : String!
+    var      storyboardFullPath      : String!
 
     init(bundle : NSBundle)
     {
@@ -74,22 +74,28 @@ class AutogenPlugin: NSObject
         }
     }
 
-    func buildPath(basePath : String, file : String) -> String
-    {
-        return "\(basePath)/\(file)"
-    }
-
     // Func to get the path to the directories for the various items needed.
     func resolveResourcePaths()
     {
+        let fileMgr = NSFileManager()
+
         getProjectPath()
 
+        // Source dir is ProjectRoot/ProjectFileName without the .xcproj extension:
         self.sourceDir = self.projectPath.stringByDeletingPathExtension as String
 
-        self.fullStoryboardPath = self.buildPath(self.sourceDir, file : ProjectItems.StoryboardDir)
-        self.fullStoryboardPath = self.buildPath(self.fullStoryboardPath, file : ProjectItems.StoryboardName)
+        assert(fileMgr.fileExistsAtPath(self.sourceDir))
 
-        self.autogenFilePath = self.buildPath(self.sourceDir, file : self.autogenFileName)
+        // Build storyboard path in two parts:
+        //      1. Build ProjectRoot/ProjectFileName/Base.lproj
+        self.storyboardFullPath = Utils.buildPath(self.sourceDir, file : ProjectItems.StoryboardDir)
+        assert(fileMgr.fileExistsAtPath(self.storyboardFullPath))
+
+        //      2. Build ProjectRoot/ProjectFileName/Base.lproj/Main.Storyboard
+        self.storyboardFullPath = Utils.buildPath(self.storyboardFullPath, file : ProjectItems.StoryboardName)
+        assert(fileMgr.fileExistsAtPath(self.storyboardFullPath))
+
+        self.autogenFilePath = Utils.buildPath(self.sourceDir, file : self.autogenFileName)
     }
 
     func syncAutogenData()
@@ -98,7 +104,7 @@ class AutogenPlugin: NSObject
 
         let text     = "test data"
 
-        let sbParser = StoryboardParser(path : self.fullStoryboardPath)
+        let sbParser = StoryboardParser(path : self.storyboardFullPath)
 
         sbParser.parse()
 

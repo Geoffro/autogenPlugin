@@ -10,7 +10,9 @@ import Foundation
 
 struct ProjectItems
 {
-    static let StoryboardDir    = "Base.lproj";
-    static let StoryboardName   = "Main.storyboard";
-    static let ImgDir           = "Assets.xcassets";
-};
+    static let StoryboardDir       = "Base.lproj"
+    static let StoryboardName      = "Main.storyboard"
+    static let ImgDir              = "Assets.xcassets"
+    static let ImgDirAlt           = "Images.xcassets"
+    static let ImgSetExtension     = "imageset"
+}
