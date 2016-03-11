@@ -80,7 +80,7 @@ class StoryboardParser
         {
             print("Storyboard IDs:\n")
 
-            for (_, id) in self.storyboardIDs.enumerate()
+            for id : String in self.storyboardIDs
             {
                 print(id)
             }
@@ -94,7 +94,7 @@ class StoryboardParser
         {
             print("Named Segues:\n")
 
-            for (_, id) in self.namedSegues.enumerate()
+            for id : String in self.namedSegues
             {
                 print(id)
             }

@@ -108,6 +108,10 @@ class AutogenPlugin: NSObject
 
         sbParser.parse()
 
+        let imgManager = ImageManager(sourceRoot : self.sourceDir)
+
+        imgManager.findProjectImageNames()
+
         do
         {
             try text.writeToFile(self.autogenFilePath, atomically : false, encoding : NSUTF8StringEncoding)

@@ -13,7 +13,7 @@ class ImageManager
     var imageDirFullPath : String!
     var srcDir           : String!
 
-    var images = [String]()
+    var images = [ImgAsset]()
 
     init(sourceRoot : String)
     {
@@ -49,7 +49,7 @@ class ImageManager
     }
 
     // Func to walk the image asset dir and grab the file names
-    func determineImageNames()
+    func findProjectImageNames()
     {
         let fileMgr  = NSFileManager()
 
@@ -61,7 +61,12 @@ class ImageManager
             {
                 if NSURL(fileURLWithPath : filename).pathExtension == ProjectItems.ImgSetExtension
                 {
-                    images.append(filename)
+                    let fullPath = Utils.buildPath(self.imageDirFullPath, file : filename)
+
+                    let imgAsset = ImgAsset(baseName : filename,
+                                            path     : fullPath)
+
+                    images.append(imgAsset)
                 }
             }
 
@@ -78,9 +83,9 @@ class ImageManager
 
     func dumpImageNames()
     {
-        for img : String in self.images
+        for img : ImgAsset in self.images
         {
-            print(img)
+            print(img.baseName)
         }
     }
 }
