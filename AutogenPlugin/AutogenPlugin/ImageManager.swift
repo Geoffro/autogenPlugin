@@ -69,9 +69,8 @@ class ImageManager
                     images.append(imgAsset)
                 }
             }
-            #if DEBUG
-                self.dumpImageNames()
-            #endif // Debug
+
+            self.dumpImageNames()
         }
         catch
         {

@@ -44,9 +44,7 @@ class StoryboardParser
     func parse()
     {
         parser.parse()
-        #if DEBUG
-            printParsedData()
-        #endif // DEBUG
+        printParsedData()
     }
 
     func parser(parser                      : NSXMLParser,
