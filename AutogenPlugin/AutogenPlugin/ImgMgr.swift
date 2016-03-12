@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ImageManager
+class ImgMgr
 {
     var imageDirFullPath : String!
     var srcDir           : String!
@@ -17,35 +17,36 @@ class ImageManager
 
     init(sourceRoot : String)
     {
-        self.srcDir = sourceRoot
-
-        self.findLocalImagePath()
+        self.srcDir           = sourceRoot
+        self.imageDirFullPath = ImgMgr.findLocalImagePath(self.srcDir)
     }
 
     // Func to locate the image directory in the local workspace.
     // The images are assumed to be stored in:
     //     1. ProjectRoot/ProjectSrcDir/Assets.cassets
     //     2. ProjectRoot/ProjectSrcDir/Images.cassets
-    func findLocalImagePath()
+    static func findLocalImagePath(srcDir : String) -> String
     {
         let fileMgr = NSFileManager()
 
-        self.imageDirFullPath = nil
+        var retImgDirPath : String = ""
 
         let imgDirs = [ProjectItems.ImgDir, ProjectItems.ImgDirAlt]
 
         for dir : String in imgDirs
         {
-            let imgDirPath = Utils.buildPath(self.srcDir, file : dir)
+            let imgDirPath = Utils.buildPath(srcDir, file : dir)
 
             if fileMgr.fileExistsAtPath(imgDirPath)
             {
-                self.imageDirFullPath = imgDirPath
+                retImgDirPath = imgDirPath
                 break
             }
         }
 
-        assert(self.imageDirFullPath != nil)
+        assert(retImgDirPath != "")
+
+        return retImgDirPath
     }
 
     // Func to walk the image asset dir and grab the file names

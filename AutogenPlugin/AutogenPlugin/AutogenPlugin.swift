@@ -15,7 +15,7 @@ class AutogenPlugin: NSObject
     lazy var center = NSNotificationCenter.defaultCenter()
 
     var      autogenFile             : NSFileHandle!
-    var      autogenFileName         : String         = "testFile.swift"
+    var      autogenFileName         : String!
     var      autogenFilePath         : String!
     var      sourceDir               : String!
     var      projectPath             : NSString!
@@ -68,6 +68,9 @@ class AutogenPlugin: NSObject
                     let workSpace       = windowController.valueForKey("_workspace")
                     let rFp             = workSpace!.valueForKey("representingFilePath")!
                     self.projectPath    = rFp.valueForKey("_pathString") as! NSString
+
+                    Utils.assertFileExists(self.projectPath as String)
+
                     break;
                 }
             }
@@ -77,23 +80,18 @@ class AutogenPlugin: NSObject
     // Func to get the path to the directories for the various items needed.
     func resolveResourcePaths()
     {
-        let fileMgr = NSFileManager()
-
         getProjectPath()
 
         // Source dir is ProjectRoot/ProjectFileName without the .xcproj extension:
-        self.sourceDir = self.projectPath.stringByDeletingPathExtension as String
+        self.sourceDir = self.projectPath.stringByDeletingPathExtension
 
-        assert(fileMgr.fileExistsAtPath(self.sourceDir))
+        Utils.assertFileExists(self.sourceDir)
 
-        // Build storyboard path in two parts:
-        //      1. Build ProjectRoot/ProjectFileName/Base.lproj
-        self.storyboardFullPath = Utils.buildPath(self.sourceDir, file : ProjectItems.StoryboardDir)
-        assert(fileMgr.fileExistsAtPath(self.storyboardFullPath))
+        Settings.instance.create(self.sourceDir)
 
-        //      2. Build ProjectRoot/ProjectFileName/Base.lproj/Main.Storyboard
-        self.storyboardFullPath = Utils.buildPath(self.storyboardFullPath, file : ProjectItems.StoryboardName)
-        assert(fileMgr.fileExistsAtPath(self.storyboardFullPath))
+        // Build ProjectRoot/ProjectFileName/Base.lproj/Main.Storyboard
+        self.storyboardFullPath = Utils.buildPath(Settings.instance.storyboardRoot, file : ProjectItems.StoryboardName)
+        Utils.assertFileExists(self.storyboardFullPath)
 
         self.autogenFilePath = Utils.buildPath(self.sourceDir, file : self.autogenFileName)
     }
@@ -108,7 +106,7 @@ class AutogenPlugin: NSObject
 
         sbParser.parse()
 
-        let imgManager = ImageManager(sourceRoot : self.sourceDir)
+        let imgManager = ImgMgr(sourceRoot : self.sourceDir)
 
         imgManager.findProjectImageNames()
 

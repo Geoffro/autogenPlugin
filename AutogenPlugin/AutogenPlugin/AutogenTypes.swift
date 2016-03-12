@@ -10,10 +10,11 @@ import Foundation
 
 struct ProjectItems
 {
-    static let StoryboardDir       = "Base.lproj"
-    static let StoryboardName      = "Main.storyboard"
-    static let ImgDir              = "Assets.xcassets"
-    static let ImgDirAlt           = "Images.xcassets"
-    static let ImgSetExtension     = "imageset"
-    static let SettingsFileName    = "config.glist"
+    static let StoryboardDir            = "Base.lproj"
+    static let StoryboardName           = "Main.storyboard"
+    static let ImgDir                   = "Assets.xcassets"
+    static let ImgDirAlt                = "Images.xcassets"
+    static let ImgSetExtension          = "imageset"
+    static let SettingsFileName         = "config.glist"
+    static let DefaultAutogenFileName   = "ProjectData.swift"
 }

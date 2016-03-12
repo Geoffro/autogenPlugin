@@ -26,33 +26,92 @@ import Foundation
 
 class Settings
 {
-    var settingsFilePath : String = ""
-    var genFileDest      : String = ""
-    var imgDirPath       : String = ""
-    var storyboardRoot   : String = ""
+    var sourceDir        : String   = ""
+    var settingsFilePath : String   = ""
+    var genFileDest      : String   = ""
+    var genFileName      : String   = ""
+    var genFileFullPath  : String   = ""
+    var imgDirPath       : String   = ""
+    var storyboardRoot   : String   = ""
+    var created          : Bool     = false
+
+    static let instance  : Settings = Settings()
 
     struct Keys
     {
+        static let GenFileName      = "GenerationFileName"
         static let GenFileDest      = "GenerationFileDest"
         static let ImgDirPath       = "ImageAssetsPath"
         static let StoryboardRoot   = "StoryboardsFileRoot"
     }
 
-    init(sourceDir : String)
+    private init()
     {
-        self.settingsFilePath = Utils.buildPath(sourceDir, file : ProjectItems.SettingsFileName)
 
-        if NSFileManager().fileExistsAtPath(self.settingsFilePath)
+    }
+
+    func create(sourceDir : String)
+    {
+        if (sourceDir != self.sourceDir) || (self.created == false)
         {
-            loadSettings()
+            self.settingsFilePath = Utils.buildPath(sourceDir, file : ProjectItems.SettingsFileName)
+
+            self.setDefaults()
+
+            if NSFileManager().fileExistsAtPath(self.settingsFilePath)
+            {
+                loadSettings()
+            }
+
+            self.created = true
+        }
+    }
+
+    // Default values are setup here.
+    // We can't assert on any of these paths because they are defaults and they may not actually exist.
+    func setDefaults()
+    {
+        // The name of the generation file.
+        genFileName    = ProjectItems.DefaultAutogenFileName
+        // The generated file will be placed in the settings directory by default.
+        genFileDest    = Utils.buildPath(self.sourceDir, file : ProjectItems.SettingsFileName)
+        // Images should be found in the source dir. There are multiple names for this dir.
+        imgDirPath     = ImgMgr.findLocalImagePath(self.sourceDir)
+        // Storyboards are going to be found in the source directory as well.
+        storyboardRoot = Utils.buildPath(self.sourceDir, file : ProjectItems.StoryboardDir)
+    }
+
+    // Func to set a string when its value is found in the dict and the string isn't empty.
+    func setStringIfNotEmpty(      dictString : AnyObject?,
+                             inout outString  : String)
+    {
+        if let curVal = dictString
+        {
+            let curString = curVal as! String
+
+            if curString != ""
+            {
+                outString = curString
+            }
         }
     }
 
     func loadSettings()
     {
-        if let _ = NSDictionary(contentsOfFile : self.settingsFilePath) as? Dictionary<String, AnyObject>
+        if let dict = NSDictionary(contentsOfFile : self.settingsFilePath) as? Dictionary<String, AnyObject>
         {
-            // Determine the layout of the xml settings file and then update this accordingly.
+            setStringIfNotEmpty(dict[Keys.GenFileName], outString : &self.genFileName)
+            setStringIfNotEmpty(dict[Keys.GenFileDest], outString : &self.genFileDest)
+            Utils.assertFileExists(self.genFileDest)
+
+            // Build the full path to the gen file.
+            genFileFullPath = Utils.buildPath(self.genFileDest, file : genFileName)
+
+            setStringIfNotEmpty(dict[Keys.ImgDirPath], outString : &self.imgDirPath)
+            Utils.assertFileExists(self.imgDirPath)
+
+            setStringIfNotEmpty(dict[Keys.StoryboardRoot], outString : &self.storyboardRoot)
+            Utils.assertFileExists(self.storyboardRoot)
         }
     }
 }

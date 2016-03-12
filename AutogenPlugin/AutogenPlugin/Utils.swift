@@ -14,4 +14,14 @@ class Utils
     {
         return "\(basePath)/\(file)"
     }
+
+    static func fileExists(path : String) -> Bool
+    {
+        return NSFileManager().fileExistsAtPath(path)
+    }
+
+    static func assertFileExists(path : String)
+    {
+        assert(fileExists(path))
+    }
 }
