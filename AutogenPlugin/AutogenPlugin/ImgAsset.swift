@@ -1,8 +1,8 @@
 //
-//  ImageAsset.swift
+//  ImgDir.swift
 //  AutogenPlugin
 //
-//  Created by Geoff on 3/10/16.
+//  Created by Geoff on 3/11/16.
 //  Copyright © 2016 Geoff. All rights reserved.
 //
 
@@ -30,7 +30,6 @@ struct ImgDetail
     }
 }
 
-// This represents the image asset dir and its contents.
 class ImgAsset
 {
     var baseName     : String!

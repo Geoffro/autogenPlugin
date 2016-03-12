@@ -8,6 +8,9 @@
 
 import Foundation
 
+// TODO: Figure out how to set DEBUG via the build settings or command line.
+let DEBUG = 1
+
 struct ProjectItems
 {
     static let StoryboardDir       = "Base.lproj"

@@ -69,11 +69,9 @@ class ImageManager
                     images.append(imgAsset)
                 }
             }
-
-            if _isDebugAssertConfiguration()
-            {
+            #if DEBUG
                 self.dumpImageNames()
-            }
+            #endif // Debug
         }
         catch
         {
@@ -85,7 +83,8 @@ class ImageManager
     {
         for img : ImgAsset in self.images
         {
-            print(img.baseName)
+            print(img.baseDirPath)
+            print("\n")
         }
     }
 }

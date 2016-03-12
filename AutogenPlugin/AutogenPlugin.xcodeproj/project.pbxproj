@@ -10,9 +10,9 @@
 		303C5055FE40E62410E3DE9D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 102FA1DC33A81C1D26AF13FC /* libPods.a */; };
 		6C02E8751C8FAC9200A4B832 /* AutogenTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02E8741C8FAC9200A4B832 /* AutogenTypes.swift */; };
 		6C02E8771C8FB82900A4B832 /* StoryboardParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02E8761C8FB82900A4B832 /* StoryboardParser.swift */; };
-		6C02E8791C91231200A4B832 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02E8781C91231200A4B832 /* ImageManager.swift */; };
-		6C02E87B1C9123F700A4B832 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02E87A1C9123F700A4B832 /* Utils.swift */; };
-		6C02E87D1C92583300A4B832 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02E87C1C92583300A4B832 /* ImageAsset.swift */; };
+		6C9506A01C927C2700786A28 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C95069D1C927C2700786A28 /* ImageManager.swift */; };
+		6C9506A11C927C2700786A28 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C95069E1C927C2700786A28 /* Utils.swift */; };
+		6CC9EE0F1C939449000361DF /* ImgAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC9EE0E1C939449000361DF /* ImgAsset.swift */; };
 		6CFEC12A1C8519E1009A2096 /* AutogenPlugin.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 6CFEC1291C8519E1009A2096 /* AutogenPlugin.xcscheme */; };
 		6CFEC12C1C8519E1009A2096 /* AutogenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFEC12B1C8519E1009A2096 /* AutogenPlugin.swift */; };
 		6CFEC12E1C8519E1009A2096 /* NSObject_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFEC12D1C8519E1009A2096 /* NSObject_Extension.swift */; };
@@ -23,9 +23,9 @@
 		10542D7018E26ACFEAAA6BB0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6C02E8741C8FAC9200A4B832 /* AutogenTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutogenTypes.swift; sourceTree = "<group>"; };
 		6C02E8761C8FB82900A4B832 /* StoryboardParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardParser.swift; sourceTree = "<group>"; };
-		6C02E8781C91231200A4B832 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
-		6C02E87A1C9123F700A4B832 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		6C02E87C1C92583300A4B832 /* ImageAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
+		6C95069D1C927C2700786A28 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		6C95069E1C927C2700786A28 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		6CC9EE0E1C939449000361DF /* ImgAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgAsset.swift; sourceTree = "<group>"; };
 		6CFEC1251C8519E1009A2096 /* AutogenPlugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutogenPlugin.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CFEC1291C8519E1009A2096 /* AutogenPlugin.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = AutogenPlugin.xcscheme; path = AutogenPlugin.xcodeproj/xcshareddata/xcschemes/AutogenPlugin.xcscheme; sourceTree = SOURCE_ROOT; };
 		6CFEC12B1C8519E1009A2096 /* AutogenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutogenPlugin.swift; sourceTree = "<group>"; };
@@ -75,14 +75,14 @@
 		6CFEC1271C8519E1009A2096 /* AutogenPlugin */ = {
 			isa = PBXGroup;
 			children = (
+				6C95069D1C927C2700786A28 /* ImageManager.swift */,
+				6CC9EE0E1C939449000361DF /* ImgAsset.swift */,
+				6C95069E1C927C2700786A28 /* Utils.swift */,
 				6CFEC12B1C8519E1009A2096 /* AutogenPlugin.swift */,
 				6CFEC12D1C8519E1009A2096 /* NSObject_Extension.swift */,
 				6CFEC12F1C8519E1009A2096 /* Info.plist */,
 				6C02E8741C8FAC9200A4B832 /* AutogenTypes.swift */,
 				6C02E8761C8FB82900A4B832 /* StoryboardParser.swift */,
-				6C02E8781C91231200A4B832 /* ImageManager.swift */,
-				6C02E87C1C92583300A4B832 /* ImageAsset.swift */,
-				6C02E87A1C9123F700A4B832 /* Utils.swift */,
 				6CFEC1281C8519E1009A2096 /* Supporting Files */,
 			);
 			path = AutogenPlugin;
@@ -208,13 +208,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C02E87D1C92583300A4B832 /* ImageAsset.swift in Sources */,
-				6C02E8751C8FAC9200A4B832 /* AutogenTypes.swift in Sources */,
-				6C02E8791C91231200A4B832 /* ImageManager.swift in Sources */,
 				6CFEC12C1C8519E1009A2096 /* AutogenPlugin.swift in Sources */,
+				6C02E8751C8FAC9200A4B832 /* AutogenTypes.swift in Sources */,
+				6C9506A11C927C2700786A28 /* Utils.swift in Sources */,
+				6C9506A01C927C2700786A28 /* ImageManager.swift in Sources */,
 				6CFEC12E1C8519E1009A2096 /* NSObject_Extension.swift in Sources */,
 				6C02E8771C8FB82900A4B832 /* StoryboardParser.swift in Sources */,
-				6C02E87B1C9123F700A4B832 /* Utils.swift in Sources */,
+				6CC9EE0F1C939449000361DF /* ImgAsset.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
