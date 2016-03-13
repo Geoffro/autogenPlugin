@@ -12,7 +12,15 @@ class Utils
 {
     static func buildPath(basePath : String, file : String) -> String
     {
-        return "\(basePath)/\(file)"
+        // Most common case is to not already have the "/" at the end.
+        var newPath : String = "\(basePath)/\(file)"
+
+        if basePath.hasSuffix("/")
+        {
+            newPath = "\(basePath)\(file)"
+        }
+
+        return newPath
     }
 
     static func fileExists(path : String) -> Bool

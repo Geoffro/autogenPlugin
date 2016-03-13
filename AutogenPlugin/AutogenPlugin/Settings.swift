@@ -52,6 +52,8 @@ class Settings
 
     func create(sourceDir : String)
     {
+        // If we update the src dir, then re-do the creation.
+        // If it hasn't been created yet, we also need to create.
         if (sourceDir != self.sourceDir) || (self.created == false)
         {
             self.sourceDir = sourceDir
@@ -98,6 +100,7 @@ class Settings
         }
     }
 
+    // Func to read the configuration file and determine any project settings.
     func loadSettings()
     {
         if let dict = NSDictionary(contentsOfFile : self.settingsFilePath) as? Dictionary<String, AnyObject>
