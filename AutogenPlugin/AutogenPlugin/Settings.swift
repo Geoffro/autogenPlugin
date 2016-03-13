@@ -54,7 +54,8 @@ class Settings
     {
         if (sourceDir != self.sourceDir) || (self.created == false)
         {
-            self.settingsFilePath = Utils.buildPath(sourceDir, file : ProjectItems.SettingsFileName)
+            self.sourceDir = sourceDir
+            self.settingsFilePath = Utils.buildPath(self.sourceDir, file : ProjectItems.SettingsFileName)
 
             self.setDefaults()
 
@@ -83,7 +84,8 @@ class Settings
 
     // Func to set a string when its value is found in the dict and the string isn't empty.
     func setStringIfNotEmpty(      dictString : AnyObject?,
-                             inout outString  : String)
+                             inout outString  : String,
+                                   isRelative : Bool        = true)  // Flag to set if the string needs a relative path.
     {
         if let curVal = dictString
         {
@@ -91,7 +93,7 @@ class Settings
 
             if curString != ""
             {
-                outString = curString
+                outString = isRelative ? Utils.buildPath(self.sourceDir, file: curString) : curString
             }
         }
     }
@@ -100,7 +102,7 @@ class Settings
     {
         if let dict = NSDictionary(contentsOfFile : self.settingsFilePath) as? Dictionary<String, AnyObject>
         {
-            setStringIfNotEmpty(dict[Keys.GenFileName], outString : &self.genFileName)
+            setStringIfNotEmpty(dict[Keys.GenFileName], outString : &self.genFileName, isRelative : false)
             setStringIfNotEmpty(dict[Keys.GenFileDest], outString : &self.genFileDest)
             Utils.assertFileExists(self.genFileDest)
 

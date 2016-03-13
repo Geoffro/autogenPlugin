@@ -14,8 +14,6 @@ class AutogenPlugin: NSObject
     var      bundle : NSBundle
     lazy var center = NSNotificationCenter.defaultCenter()
 
-    var      autogenFile             : NSFileHandle!
-    var      autogenFileName         : String!
     var      autogenFilePath         : String!
     var      sourceDir               : String!
     var      projectPath             : NSString!
@@ -71,6 +69,10 @@ class AutogenPlugin: NSObject
 
                     Utils.assertFileExists(self.projectPath as String)
 
+                    // Source dir is ProjectRoot/ProjectFileName without the .xcproj extension:
+                    self.sourceDir = self.projectPath.stringByDeletingPathExtension
+                    Utils.assertFileExists(self.sourceDir)
+
                     break;
                 }
             }
@@ -82,18 +84,13 @@ class AutogenPlugin: NSObject
     {
         getProjectPath()
 
-        // Source dir is ProjectRoot/ProjectFileName without the .xcproj extension:
-        self.sourceDir = self.projectPath.stringByDeletingPathExtension
-
-        Utils.assertFileExists(self.sourceDir)
-
         Settings.instance.create(self.sourceDir)
 
         // Build ProjectRoot/ProjectFileName/Base.lproj/Main.Storyboard
         self.storyboardFullPath = Utils.buildPath(Settings.instance.storyboardRoot, file : ProjectItems.StoryboardName)
         Utils.assertFileExists(self.storyboardFullPath)
 
-        self.autogenFilePath = Utils.buildPath(self.sourceDir, file : self.autogenFileName)
+        self.autogenFilePath = Settings.instance.genFileFullPath
     }
 
     func syncAutogenData()

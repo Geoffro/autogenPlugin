@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>GenerationFileDest</key>
-        <string>../</string>
+        <string>..</string>
     <key>ImageAssetsPath</key>
         <string></string>
     <key>StoryboardsFileRoot</key>
