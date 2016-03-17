@@ -56,7 +56,7 @@ class Settings
         // If it hasn't been created yet, we also need to create.
         if (sourceDir != self.sourceDir) || (self.created == false)
         {
-            self.sourceDir = sourceDir
+            self.sourceDir        = sourceDir
             self.settingsFilePath = Utils.buildPath(self.sourceDir, file : ProjectItems.SettingsFileName)
 
             self.setDefaults()

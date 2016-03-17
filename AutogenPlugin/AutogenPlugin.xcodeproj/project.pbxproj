@@ -12,6 +12,7 @@
 		6C02E8771C8FB82900A4B832 /* StoryboardParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02E8761C8FB82900A4B832 /* StoryboardParser.swift */; };
 		6C9506A01C927C2700786A28 /* ImgMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C95069D1C927C2700786A28 /* ImgMgr.swift */; };
 		6C9506A11C927C2700786A28 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C95069E1C927C2700786A28 /* Utils.swift */; };
+		6C979CDE1C9900B300056396 /* AutogenFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C979CDD1C9900B300056396 /* AutogenFile.swift */; };
 		6CC9EE0F1C939449000361DF /* ImgAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC9EE0E1C939449000361DF /* ImgAsset.swift */; };
 		6CD70AEB1C939A1000886EE4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD70AEA1C939A1000886EE4 /* Settings.swift */; };
 		6CFEC12A1C8519E1009A2096 /* AutogenPlugin.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 6CFEC1291C8519E1009A2096 /* AutogenPlugin.xcscheme */; };
@@ -26,6 +27,7 @@
 		6C02E8761C8FB82900A4B832 /* StoryboardParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardParser.swift; sourceTree = "<group>"; };
 		6C95069D1C927C2700786A28 /* ImgMgr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgMgr.swift; sourceTree = "<group>"; };
 		6C95069E1C927C2700786A28 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		6C979CDD1C9900B300056396 /* AutogenFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutogenFile.swift; sourceTree = "<group>"; };
 		6CC9EE0E1C939449000361DF /* ImgAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgAsset.swift; sourceTree = "<group>"; };
 		6CD70AEA1C939A1000886EE4 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		6CFEC1251C8519E1009A2096 /* AutogenPlugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutogenPlugin.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +86,7 @@
 				6CFEC12D1C8519E1009A2096 /* NSObject_Extension.swift */,
 				6CFEC12F1C8519E1009A2096 /* Info.plist */,
 				6C02E8741C8FAC9200A4B832 /* AutogenTypes.swift */,
+				6C979CDD1C9900B300056396 /* AutogenFile.swift */,
 				6C02E8761C8FB82900A4B832 /* StoryboardParser.swift */,
 				6CD70AEA1C939A1000886EE4 /* Settings.swift */,
 				6CFEC1281C8519E1009A2096 /* Supporting Files */,
@@ -216,6 +219,7 @@
 				6CD70AEB1C939A1000886EE4 /* Settings.swift in Sources */,
 				6C9506A11C927C2700786A28 /* Utils.swift in Sources */,
 				6C9506A01C927C2700786A28 /* ImgMgr.swift in Sources */,
+				6C979CDE1C9900B300056396 /* AutogenFile.swift in Sources */,
 				6CFEC12E1C8519E1009A2096 /* NSObject_Extension.swift in Sources */,
 				6C02E8771C8FB82900A4B832 /* StoryboardParser.swift in Sources */,
 				6CC9EE0F1C939449000361DF /* ImgAsset.swift in Sources */,

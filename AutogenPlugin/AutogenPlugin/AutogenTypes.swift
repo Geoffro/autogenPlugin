@@ -15,6 +15,6 @@ struct ProjectItems
     static let ImgDir                   = "Assets.xcassets"
     static let ImgDirAlt                = "Images.xcassets"
     static let ImgSetExtension          = "imageset"
-    static let SettingsFileName         = "config.glist"
+    static let SettingsFileName         = "AutogenConfig.plist"
     static let DefaultAutogenFileName   = "ProjectData.swift"
 }
