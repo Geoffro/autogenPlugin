@@ -1,0 +1,191 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Utils"
+provides-nominal:
+- "C13AutogenPlugin5Utils"
+provides-member:
+- ["C13AutogenPlugin5Utils", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "assert"
+- !private "UnicodeScalarType"
+- !private "NSFileManager"
+- "Bool"
+- "Utils"
+- !private "StringLiteralType"
+- "String"
+depends-member:
+- !private ["PSs9AnyObject", "NSFileManager"]
+- !private ["PSs9AnyObject", "assert"]
+- !private ["PSs9AnyObject", "fileExists"]
+- !private ["PSs9AnyObject", "fileExistsAtPath"]
+- !private ["PSs9AnyObject", "hasSuffix"]
+- !private ["PSs9AnyObject", "init"]
+- ["PSs9AnyObject", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Sb", "deinit"]
+- !private ["PSs25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs11BooleanType", "_getBuiltinLogicValue"]
+- !private ["PSs11CVarArgType", "fileExistsAtPath"]
+- !private ["PSs11CVarArgType", "hasSuffix"]
+- !private ["PSs11CVarArgType", "init"]
+- !private ["VSs9Character", "deinit"]
+- !private ["PSs10Comparable", "hasSuffix"]
+- !private ["PSs10Comparable", "init"]
+- !private ["PSs28CustomDebugStringConvertible", "hasSuffix"]
+- !private ["PSs28CustomDebugStringConvertible", "init"]
+- !private ["PSs23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs23CustomStringConvertible", "fileExistsAtPath"]
+- !private ["PSs23CustomStringConvertible", "hasSuffix"]
+- !private ["PSs23CustomStringConvertible", "init"]
+- !private ["Sd", "deinit"]
+- !private ["PSs9Equatable", "_getBuiltinLogicValue"]
+- !private ["PSs9Equatable", "fileExistsAtPath"]
+- !private ["PSs9Equatable", "hasSuffix"]
+- !private ["PSs9Equatable", "init"]
+- !private ["PSs41ExtendedGraphemeClusterLiteralConvertible", "hasSuffix"]
+- !private ["PSs41ExtendedGraphemeClusterLiteralConvertible", "init"]
+- !private ["Sf", "deinit"]
+- !private ["PSs8Hashable", "_getBuiltinLogicValue"]
+- !private ["PSs8Hashable", "fileExistsAtPath"]
+- !private ["PSs8Hashable", "hasSuffix"]
+- !private ["PSs8Hashable", "init"]
+- !private ["Si", "deinit"]
+- !private ["VSs5Int16", "deinit"]
+- !private ["VSs5Int32", "deinit"]
+- !private ["VSs5Int64", "deinit"]
+- !private ["VSs4Int8", "deinit"]
+- !private ["PSs14MirrorPathType", "hasSuffix"]
+- !private ["PSs14MirrorPathType", "init"]
+- !private ["PSo8NSCoding", "hasSuffix"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo9NSCopying", "hasSuffix"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["CSo13NSFileManager", "fileExistsAtPath"]
+- !private ["CSo13NSFileManager", "init"]
+- !private ["PSo16NSMutableCopying", "hasSuffix"]
+- !private ["PSo16NSMutableCopying", "init"]
+- !private ["CSo8NSObject", "fileExistsAtPath"]
+- !private ["CSo8NSObject", "hasSuffix"]
+- !private ["CSo8NSObject", "init"]
+- !private ["PSo16NSObjectProtocol", "fileExistsAtPath"]
+- !private ["PSo16NSObjectProtocol", "hasSuffix"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo19NSPasteboardReading", "hasSuffix"]
+- !private ["PSo19NSPasteboardReading", "init"]
+- !private ["PSo19NSPasteboardWriting", "hasSuffix"]
+- !private ["PSo19NSPasteboardWriting", "init"]
+- !private ["PSo14NSSecureCoding", "hasSuffix"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "hasSuffix"]
+- !private ["CSo8NSString", "init"]
+- !private ["PSs16OutputStreamType", "hasSuffix"]
+- !private ["PSs16OutputStreamType", "init"]
+- !private ["VSs12StaticString", "deinit"]
+- !private ["PSs10Streamable", "hasSuffix"]
+- !private ["PSs10Streamable", "init"]
+- !private ["SS", "hasSuffix"]
+- !private ["SS", "init"]
+- !private ["PSs30StringInterpolationConvertible", "hasSuffix"]
+- !private ["PSs30StringInterpolationConvertible", "init"]
+- !private ["PSs24StringLiteralConvertible", "hasSuffix"]
+- !private ["PSs24StringLiteralConvertible", "init"]
+- !private ["Su", "deinit"]
+- !private ["VSs6UInt16", "deinit"]
+- !private ["VSs6UInt32", "deinit"]
+- !private ["VSs6UInt64", "deinit"]
+- !private ["VSs5UInt8", "deinit"]
+- !private ["Sc", "deinit"]
+- !private ["PSs31UnicodeScalarLiteralConvertible", "hasSuffix"]
+- !private ["PSs31UnicodeScalarLiteralConvertible", "init"]
+- ["C13AutogenPlugin5Utils", "Bool"]
+- !private ["C13AutogenPlugin5Utils", "NSFileManager"]
+- ["C13AutogenPlugin5Utils", "String"]
+- !private ["C13AutogenPlugin5Utils", "assert"]
+- ["C13AutogenPlugin5Utils", "assertFileExists"]
+- ["C13AutogenPlugin5Utils", "buildPath"]
+- ["C13AutogenPlugin5Utils", "deinit"]
+- ["C13AutogenPlugin5Utils", "fileExists"]
+- ["C13AutogenPlugin5Utils", "init"]
+- !private ["PSs33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs49_BuiltinExtendedGraphemeClusterLiteralConvertible", "hasSuffix"]
+- !private ["PSs49_BuiltinExtendedGraphemeClusterLiteralConvertible", "init"]
+- !private ["PSs32_BuiltinStringLiteralConvertible", "hasSuffix"]
+- !private ["PSs32_BuiltinStringLiteralConvertible", "init"]
+- !private ["PSs37_BuiltinUTF16StringLiteralConvertible", "hasSuffix"]
+- !private ["PSs37_BuiltinUTF16StringLiteralConvertible", "init"]
+- !private ["PSs39_BuiltinUnicodeScalarLiteralConvertible", "hasSuffix"]
+- !private ["PSs39_BuiltinUnicodeScalarLiteralConvertible", "init"]
+- !private ["PSs16_CocoaStringType", "hasSuffix"]
+- !private ["PSs16_CocoaStringType", "init"]
+- !private ["PSs21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["PSs21_ObjectiveCBridgeable", "hasSuffix"]
+- !private ["PSs21_ObjectiveCBridgeable", "init"]
+- !private ["PSs12_Reflectable", "_getBuiltinLogicValue"]
+- !private ["PSs12_Reflectable", "hasSuffix"]
+- !private ["PSs12_Reflectable", "init"]
+depends-nominal:
+- "PSs9AnyObject"
+- !private "Sb"
+- !private "PSs25BooleanLiteralConvertible"
+- !private "PSs11BooleanType"
+- !private "PSs11CVarArgType"
+- !private "VSs9Character"
+- !private "PSs10Comparable"
+- !private "PSs28CustomDebugStringConvertible"
+- !private "PSs23CustomStringConvertible"
+- !private "Sd"
+- !private "PSs9Equatable"
+- !private "PSs41ExtendedGraphemeClusterLiteralConvertible"
+- !private "Sf"
+- !private "PSs8Hashable"
+- !private "Si"
+- !private "VSs5Int16"
+- !private "VSs5Int32"
+- !private "VSs5Int64"
+- !private "VSs4Int8"
+- !private "PSs14MirrorPathType"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "CSo13NSFileManager"
+- !private "PSo16NSMutableCopying"
+- !private "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "PSo19NSPasteboardReading"
+- !private "PSo19NSPasteboardWriting"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "PSs16OutputStreamType"
+- !private "VSs12StaticString"
+- !private "PSs10Streamable"
+- !private "SS"
+- !private "PSs30StringInterpolationConvertible"
+- !private "PSs24StringLiteralConvertible"
+- !private "Su"
+- !private "VSs6UInt16"
+- !private "VSs6UInt32"
+- !private "VSs6UInt64"
+- !private "VSs5UInt8"
+- !private "Sc"
+- !private "PSs31UnicodeScalarLiteralConvertible"
+- "C13AutogenPlugin5Utils"
+- !private "PSs33_BuiltinBooleanLiteralConvertible"
+- !private "PSs49_BuiltinExtendedGraphemeClusterLiteralConvertible"
+- !private "PSs32_BuiltinStringLiteralConvertible"
+- !private "PSs37_BuiltinUTF16StringLiteralConvertible"
+- !private "PSs39_BuiltinUnicodeScalarLiteralConvertible"
+- !private "PSs16_CocoaStringType"
+- !private "PSs21_ObjectiveCBridgeable"
+- !private "PSs12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/AppKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreImage.swiftmodule"
+interface-hash: "933aa0073e8081c072660b9720a96b75"

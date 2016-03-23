@@ -4,9 +4,15 @@
 <dict>
 	<key>GenerationFileDest</key>
         <string>..</string>
+    <key>GenerationFileName</key>
+        <string></string>
     <key>ImageAssetsPath</key>
         <string></string>
     <key>StoryboardsFileRoot</key>
         <string></string>
-    </dict>
+    <key>ApiKeysLocation</key>
+        <string>..</string>
+    <key>ApiKeysFileName</key>
+        <string>ApiKeys.json</string>
+</dict>
 </plist>

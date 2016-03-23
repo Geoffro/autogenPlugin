@@ -14,10 +14,8 @@ class AutogenPlugin: NSObject
     var      bundle : NSBundle
     lazy var center = NSNotificationCenter.defaultCenter()
 
-    var      autogenFilePath         : String!
     var      sourceDir               : String!
     var      projectPath             : NSString!
-    var      storyboardFullPath      : String!
 
     init(bundle : NSBundle)
     {
@@ -73,48 +71,27 @@ class AutogenPlugin: NSObject
                     self.sourceDir = self.projectPath.stringByDeletingPathExtension
                     Utils.assertFileExists(self.sourceDir)
 
+                    Settings.instance.create(self.sourceDir)
+
                     break;
                 }
             }
         }
     }
 
-    // Func to get the path to the directories for the various items needed.
-    func resolveResourcePaths()
+    func syncAutogenData()
     {
         getProjectPath()
 
-        Settings.instance.create(self.sourceDir)
-
-        // Build ProjectRoot/ProjectFileName/Base.lproj/Main.Storyboard
-        self.storyboardFullPath = Utils.buildPath(Settings.instance.storyboardRoot, file : ProjectItems.StoryboardName)
-        Utils.assertFileExists(self.storyboardFullPath)
-
-        self.autogenFilePath = Settings.instance.genFileFullPath
-    }
-
-    func syncAutogenData()
-    {
-        resolveResourcePaths()
-
-        let text     = "test data"
-
-        let sbParser = StoryboardParser(path : self.storyboardFullPath)
-
-        sbParser.parse()
+        let sbParser = StoryboardParser(path : Settings.instance.storyboardFullPath)
 
         let imgManager = ImgMgr(sourceRoot : self.sourceDir)
 
-        imgManager.findProjectImageNames()
+        let apiKeyMgr = ApiKeyMgr(path : Settings.instance.apiKeysLocation)
 
-        do
-        {
-            try text.writeToFile(self.autogenFilePath, atomically : false, encoding : NSUTF8StringEncoding)
-        }
-        catch
-        {
-            print("Error: Failed to write file")
-        }
+        let fileWriter = FileWriter(imgMgr : imgManager, storyboardData : sbParser, apiKeyMgr : apiKeyMgr, genFilePath : Settings.instance.genFileFullPath)
+
+        fileWriter.writeAutogenData()
     }
 }
 

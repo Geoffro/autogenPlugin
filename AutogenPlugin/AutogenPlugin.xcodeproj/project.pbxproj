@@ -10,6 +10,7 @@
 		303C5055FE40E62410E3DE9D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 102FA1DC33A81C1D26AF13FC /* libPods.a */; };
 		6C02E8751C8FAC9200A4B832 /* AutogenTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02E8741C8FAC9200A4B832 /* AutogenTypes.swift */; };
 		6C02E8771C8FB82900A4B832 /* StoryboardParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C02E8761C8FB82900A4B832 /* StoryboardParser.swift */; };
+		6C58BFF11CA2095A00B9C90F /* ApiKeyMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C58BFF01CA2095A00B9C90F /* ApiKeyMgr.swift */; };
 		6C9506A01C927C2700786A28 /* ImgMgr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C95069D1C927C2700786A28 /* ImgMgr.swift */; };
 		6C9506A11C927C2700786A28 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C95069E1C927C2700786A28 /* Utils.swift */; };
 		6C979CDE1C9900B300056396 /* AutogenFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C979CDD1C9900B300056396 /* AutogenFile.swift */; };
@@ -25,6 +26,7 @@
 		10542D7018E26ACFEAAA6BB0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6C02E8741C8FAC9200A4B832 /* AutogenTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutogenTypes.swift; sourceTree = "<group>"; };
 		6C02E8761C8FB82900A4B832 /* StoryboardParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardParser.swift; sourceTree = "<group>"; };
+		6C58BFF01CA2095A00B9C90F /* ApiKeyMgr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeyMgr.swift; sourceTree = "<group>"; };
 		6C95069D1C927C2700786A28 /* ImgMgr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgMgr.swift; sourceTree = "<group>"; };
 		6C95069E1C927C2700786A28 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		6C979CDD1C9900B300056396 /* AutogenFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutogenFile.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				6C979CDD1C9900B300056396 /* AutogenFile.swift */,
 				6C02E8761C8FB82900A4B832 /* StoryboardParser.swift */,
 				6CD70AEA1C939A1000886EE4 /* Settings.swift */,
+				6C58BFF01CA2095A00B9C90F /* ApiKeyMgr.swift */,
 				6CFEC1281C8519E1009A2096 /* Supporting Files */,
 			);
 			path = AutogenPlugin;
@@ -221,6 +224,7 @@
 				6C9506A01C927C2700786A28 /* ImgMgr.swift in Sources */,
 				6C979CDE1C9900B300056396 /* AutogenFile.swift in Sources */,
 				6CFEC12E1C8519E1009A2096 /* NSObject_Extension.swift in Sources */,
+				6C58BFF11CA2095A00B9C90F /* ApiKeyMgr.swift in Sources */,
 				6C02E8771C8FB82900A4B832 /* StoryboardParser.swift in Sources */,
 				6CC9EE0F1C939449000361DF /* ImgAsset.swift in Sources */,
 			);

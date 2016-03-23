@@ -19,6 +19,8 @@ class ImgMgr
     {
         self.srcDir           = sourceRoot
         self.imageDirFullPath = ImgMgr.findLocalImagePath(self.srcDir)
+
+        findProjectImageNames()
     }
 
     // Func to locate the image directory in the local workspace.
@@ -50,7 +52,7 @@ class ImgMgr
     }
 
     // Func to walk the image asset dir and grab the file names
-    func findProjectImageNames()
+    private func findProjectImageNames()
     {
         let fileMgr  = NSFileManager()
 
@@ -79,7 +81,7 @@ class ImgMgr
         }
     }
 
-    func dumpImageNames()
+    private func dumpImageNames()
     {
         for img : ImgAsset in self.images
         {

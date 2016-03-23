@@ -27,24 +27,44 @@ class StoryboardParser
     NSObject,
     NSXMLParserDelegate
 {
-    var storyboardIDs  = [String]()
-    var namedSegues    = [String]()
+    private var m_storyboardIDs  = [String]()
+    private var m_namedSegues    = [String]()
 
-    var parser                     : NSXMLParser!
+    private var m_parser                     : NSXMLParser!
+    private var m_parsed                     : Bool         = false
 
     init(path : String)
     {
         super.init()
 
-        let storyboardPath = NSURL(fileURLWithPath : path)
-        parser             = NSXMLParser(contentsOfURL : storyboardPath)
-        parser!.delegate   = self
+        let storyboardPath   = NSURL(fileURLWithPath : path)
+        m_parser             = NSXMLParser(contentsOfURL : storyboardPath)
+        m_parser!.delegate   = self
+
+        parse()
     }
 
-    func parse()
+    func storyboardIDs() -> [String]
     {
-        parser.parse()
+        return m_storyboardIDs
+    }
+
+    func namedSegues() -> [String]
+    {
+        return m_namedSegues
+    }
+
+    private func parse()
+    {
+        m_parser.parse()
         printParsedData()
+
+        m_parsed = true
+    }
+
+    func parsed() -> Bool
+    {
+        return m_parsed
     }
 
     func parser(parser                      : NSXMLParser,
@@ -57,14 +77,14 @@ class StoryboardParser
         {
             if let id = attributeDict[SBA.storyboardIdentifier]
             {
-                storyboardIDs.append(id)
+                m_storyboardIDs.append(id)
             }
         }
         else if elementName == SBE.segue
         {
             if let id = attributeDict[SBA.segueIdentifier]
             {
-                namedSegues.append(id)
+                m_namedSegues.append(id)
             }
         }
     }
@@ -72,11 +92,11 @@ class StoryboardParser
     // Dump all the data collected.
     func printParsedData()
     {
-        if self.storyboardIDs.count > 0
+        if m_storyboardIDs.count > 0
         {
             print("Storyboard IDs:\n")
 
-            for id : String in self.storyboardIDs
+            for id : String in m_storyboardIDs
             {
                 print(id)
             }
@@ -86,11 +106,11 @@ class StoryboardParser
             print("No Storyboard IDs found.\n")
         }
 
-        if self.namedSegues.count > 0
+        if m_namedSegues.count > 0
         {
             print("Named Segues:\n")
 
-            for id : String in self.namedSegues
+            for id : String in m_namedSegues
             {
                 print(id)
             }
