@@ -10,12 +10,12 @@ import Foundation
 
 class ImgMgr
 {
-    var imageDirFullPath : String!
-    var srcDir           : String!
+    var imageDirFullPath : NSURL!
+    var srcDir           : NSURL!
 
     var images = [ImgAsset]()
 
-    init(sourceRoot : String)
+    init(sourceRoot : NSURL)
     {
         self.srcDir           = sourceRoot
         self.imageDirFullPath = ImgMgr.findLocalImagePath(self.srcDir)
@@ -27,19 +27,17 @@ class ImgMgr
     // The images are assumed to be stored in:
     //     1. ProjectRoot/ProjectSrcDir/Assets.cassets
     //     2. ProjectRoot/ProjectSrcDir/Images.cassets
-    static func findLocalImagePath(srcDir : String) -> String
+    static func findLocalImagePath(srcDir : NSURL) -> NSURL
     {
-        let fileMgr = NSFileManager()
-
-        var retImgDirPath : String = ""
+        var retImgDirPath : NSURL!
 
         let imgDirs = [ProjectItems.ImgDir, ProjectItems.ImgDirAlt]
 
         for dir : String in imgDirs
         {
-            let imgDirPath = Utils.buildPath(srcDir, file : dir)
+            let imgDirPath = NSURL.init(string : dir, relativeToURL : srcDir)!
 
-            if fileMgr.fileExistsAtPath(imgDirPath)
+            if Utils.fileExists(imgDirPath)
             {
                 retImgDirPath = imgDirPath
                 break
@@ -58,15 +56,16 @@ class ImgMgr
 
         do
         {
-            let filelist = try fileMgr.contentsOfDirectoryAtPath(self.imageDirFullPath)
+            let filelist = try fileMgr.contentsOfDirectoryAtURL(self.imageDirFullPath, includingPropertiesForKeys : nil, options : NSDirectoryEnumerationOptions.SkipsHiddenFiles)
 
-            for filename : String in filelist
+            for filename : NSURL in filelist
             {
-                if NSURL(fileURLWithPath : filename).pathExtension == ProjectItems.ImgSetExtension
+                if filename.pathExtension == ProjectItems.ImgSetExtension
                 {
-                    let fullPath = Utils.buildPath(self.imageDirFullPath, file : filename)
+                    let fileNameString = filename.absoluteString
+                    let fullPath = NSURL.init(string : fileNameString, relativeToURL: self.imageDirFullPath)!
 
-                    let imgAsset = ImgAsset(baseName : filename,
+                    let imgAsset = ImgAsset(baseName : fileNameString,
                                             path     : fullPath)
 
                     images.append(imgAsset)

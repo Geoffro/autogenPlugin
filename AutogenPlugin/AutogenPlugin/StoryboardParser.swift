@@ -33,12 +33,11 @@ class StoryboardParser
     private var m_parser                     : NSXMLParser!
     private var m_parsed                     : Bool         = false
 
-    init(path : String)
+    init(path : NSURL)
     {
         super.init()
 
-        let storyboardPath   = NSURL(fileURLWithPath : path)
-        m_parser             = NSXMLParser(contentsOfURL : storyboardPath)
+        m_parser             = NSXMLParser(contentsOfURL : path)
         m_parser!.delegate   = self
 
         parse()

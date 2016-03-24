@@ -9,7 +9,7 @@
     <key>ImageAssetsPath</key>
         <string></string>
     <key>StoryboardsFileRoot</key>
-        <string></string>
+        <string>..</string>
     <key>ApiKeysLocation</key>
         <string>..</string>
     <key>ApiKeysFileName</key>

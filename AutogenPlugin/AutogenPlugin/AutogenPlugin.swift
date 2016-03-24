@@ -14,8 +14,8 @@ class AutogenPlugin: NSObject
     var      bundle : NSBundle
     lazy var center = NSNotificationCenter.defaultCenter()
 
-    var      sourceDir               : String!
-    var      projectPath             : NSString!
+    var      sourceDir               : NSURL!
+    var      projectPath             : NSURL!
 
     init(bundle : NSBundle)
     {
@@ -63,12 +63,12 @@ class AutogenPlugin: NSObject
                 {
                     let workSpace       = windowController.valueForKey("_workspace")
                     let rFp             = workSpace!.valueForKey("representingFilePath")!
-                    self.projectPath    = rFp.valueForKey("_pathString") as! NSString
+                    self.projectPath    = NSURL(fileURLWithPath : rFp.valueForKey("_pathString") as! String)
 
-                    Utils.assertFileExists(self.projectPath as String)
+                    Utils.assertFileExists(self.projectPath)
 
                     // Source dir is ProjectRoot/ProjectFileName without the .xcproj extension:
-                    self.sourceDir = self.projectPath.stringByDeletingPathExtension
+                    self.sourceDir = NSURL(string : self.projectPath.pathExtension!)
                     Utils.assertFileExists(self.sourceDir)
 
                     Settings.instance.create(self.sourceDir)

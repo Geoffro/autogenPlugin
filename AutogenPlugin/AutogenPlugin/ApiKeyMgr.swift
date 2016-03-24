@@ -10,11 +10,11 @@ import Foundation
 
 class ApiKeyMgr
 {
-    private var m_apiKeysFullPath : String!
+    private var m_apiKeysFullPath : NSURL!
 
     private var m_apiKeys = Dictionary<String, String>()
 
-    init (path : String)
+    init (path : NSURL)
     {
         m_apiKeysFullPath = path
 
@@ -31,7 +31,7 @@ class ApiKeyMgr
     {
         do
         {
-            let jsonData = try NSData(contentsOfFile : m_apiKeysFullPath, options : NSDataReadingOptions.DataReadingMappedIfSafe)
+            let jsonData = try NSData(contentsOfURL : m_apiKeysFullPath, options : NSDataReadingOptions.DataReadingMappedIfSafe)
 
             do
             {

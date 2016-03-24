@@ -26,17 +26,18 @@ import Foundation
 
 class Settings
 {
-    var sourceDir             : String   = ""
-    var settingsFilePath      : String   = ""
-    var genFileDest           : String   = ""
+    var sourceDir             : NSURL!
+    var settingsFilePath      : NSURL!
+    var genFileDest           : NSURL!
     var genFileName           : String   = ""
-    var genFileFullPath       : String   = ""
-    var imgDirPath            : String   = ""
-    var storyboardRoot        : String   = ""
+    var genFileFullPath       : NSURL!
+    var imgDirPath            : NSURL!
+    var storyboardRoot        : NSURL!
     var storyboardName        : String   = ""
-    var storyboardFullPath    : String   = ""
-    var apiKeysLocation       : String   = ""
+    var storyboardFullPath    : NSURL!
+    var apiKeysLocation       : NSURL!
     var apiKeysFileName       : String   = ""
+    var apiKeysFullPath       : NSURL!
     var created               : Bool     = false
 
     static let instance       : Settings = Settings()
@@ -57,18 +58,18 @@ class Settings
 
     }
 
-    func create(sourceDir : String)
+    func create(sourceDir : NSURL)
     {
         // If we update the src dir, then re-do the creation.
         // If it hasn't been created yet, we also need to create.
         if (sourceDir != self.sourceDir) || (self.created == false)
         {
             self.sourceDir        = sourceDir
-            self.settingsFilePath = Utils.buildPath(self.sourceDir, file : ProjectItems.SettingsFileName)
+            self.settingsFilePath = NSURL.init(string : ProjectItems.SettingsFileName, relativeToURL : self.sourceDir)
 
             self.setDefaults()
 
-            if NSFileManager().fileExistsAtPath(self.settingsFilePath)
+            if Utils.fileExists(self.settingsFilePath)
             {
                 loadSettings()
             }
@@ -84,22 +85,20 @@ class Settings
         // The name of the generation file.
         genFileName        = ProjectItems.DefaultAutogenFileName
         // The generated file will be placed in the settings directory by default.
-        genFileDest        = Utils.buildPath(self.sourceDir, file : ProjectItems.SettingsFileName)
+        genFileDest        = NSURL.init(string : ProjectItems.SettingsFileName, relativeToURL : self.sourceDir)
         // Images should be found in the source dir. There are multiple names for this dir.
         imgDirPath         = ImgMgr.findLocalImagePath(self.sourceDir)
         // Storyboards are going to be found in the source directory as well.
-        storyboardRoot     = Utils.buildPath(self.sourceDir, file : ProjectItems.StoryboardDir)
+        storyboardRoot     = NSURL.init(string : ProjectItems.StoryboardDir, relativeToURL : self.sourceDir)
         storyboardName     = ProjectItems.DefaultStoryboardName
-        storyboardFullPath = Utils.buildPath(self.storyboardRoot, file : self.storyboardName)
+        storyboardFullPath = NSURL.init(string : self.storyboardName, relativeToURL : self.storyboardRoot)
 
         // Api Keys are going to be found in the source dir.
-        apiKeysLocation    = Utils.buildPath(self.sourceDir, file : ProjectItems.DefaultApiKeyFileName)
+        apiKeysLocation    = NSURL.init(string : ProjectItems.DefaultApiKeyFileName, relativeToURL : self.sourceDir)
     }
 
     // Func to set a string when its value is found in the dict and the string isn't empty.
-    func setStringIfNotEmpty(      dictString : AnyObject?,
-                             inout outString  : String,
-                                   isRelative : Bool        = true)  // Flag to set if the string needs a relative path.
+    func setPathIfNotEmpty(dictString : AnyObject?, outURL : NSURL) -> NSURL
     {
         if let curVal = dictString
         {
@@ -107,7 +106,23 @@ class Settings
 
             if curString != ""
             {
-                outString = isRelative ? Utils.buildPath(self.sourceDir, file: curString) : curString
+                return NSURL.init(string : curString, relativeToURL : self.sourceDir)!
+            }
+        }
+
+        return outURL
+    }
+
+    func setStringIfNotEmpty(      dictString       : AnyObject?,
+                             inout outString        : String)
+    {
+        if let curVal = dictString
+        {
+            let curString = curVal as! String
+
+            if curString != ""
+            {
+                outString = curString
             }
         }
     }
@@ -115,27 +130,29 @@ class Settings
     // Func to read the configuration file and determine any project settings.
     func loadSettings()
     {
-        if let dict = NSDictionary(contentsOfFile : self.settingsFilePath) as? Dictionary<String, AnyObject>
+        if let dict = NSDictionary(contentsOfURL : self.settingsFilePath) as? Dictionary<String, AnyObject>
         {
-            setStringIfNotEmpty(dict[Keys.GenFileName], outString : &self.genFileName, isRelative : false)
-            setStringIfNotEmpty(dict[Keys.GenFileDest], outString : &self.genFileDest)
+            setStringIfNotEmpty(dict[Keys.GenFileName], outString : &self.genFileName)
+            self.genFileDest = setPathIfNotEmpty(dict[Keys.GenFileDest], outURL : self.genFileDest)
             Utils.assertFileExists(self.genFileDest)
 
             // Build the full path to the gen file.
-            genFileFullPath = Utils.buildPath(self.genFileDest, file : self.genFileName)
+            genFileFullPath = NSURL.init(string : self.genFileName, relativeToURL : self.genFileDest)
 
-            setStringIfNotEmpty(dict[Keys.ImgDirPath], outString : &self.imgDirPath)
+            self.imgDirPath = setPathIfNotEmpty(dict[Keys.ImgDirPath], outURL : self.imgDirPath)
             Utils.assertFileExists(self.imgDirPath)
 
-            setStringIfNotEmpty(dict[Keys.StoryboardRoot], outString : &self.storyboardRoot)
+            self.storyboardRoot = setPathIfNotEmpty(dict[Keys.StoryboardRoot], outURL : self.storyboardRoot)
             Utils.assertFileExists(self.storyboardRoot)
 
             setStringIfNotEmpty(dict[Keys.StoryboardName], outString : &self.storyboardName)
-            self.storyboardFullPath = Utils.buildPath(self.storyboardRoot, file : self.storyboardName)
+            self.storyboardFullPath = NSURL.init(string : self.storyboardName, relativeToURL : self.storyboardRoot)
             Utils.assertFileExists(self.storyboardFullPath)
 
-            setStringIfNotEmpty(dict[Keys.ApiKeysLocation], outString : &self.apiKeysLocation)
+            self.apiKeysLocation = setPathIfNotEmpty(dict[Keys.ApiKeysLocation], outURL : self.apiKeysLocation)
             setStringIfNotEmpty(dict[Keys.ApiKeysFileName], outString : &self.apiKeysFileName)
+
+            self.apiKeysFullPath = NSURL.init(string : self.apiKeysFileName, relativeToURL : self.apiKeysLocation)
         }
     }
 }

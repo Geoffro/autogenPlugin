@@ -18,7 +18,7 @@ struct Gen
 
 class FileWriter
 {
-    private var m_genFileFullPath    : String = ""
+    private var m_genFileFullPath    : NSURL!
     private var m_imgMgr             : ImgMgr!
     private var m_storyboardData     : StoryboardParser!
     private var m_apiKeyMgr          : ApiKeyMgr!
@@ -30,23 +30,22 @@ class FileWriter
     init(imgMgr          : ImgMgr,
          storyboardData  : StoryboardParser,
          apiKeyMgr       : ApiKeyMgr,
-         genFilePath     : String)
+         genFilePath     : NSURL)
     {
         m_imgMgr          = imgMgr
         m_storyboardData  = storyboardData
 
         m_genFileFullPath = genFilePath
+        m_fileOpen        = true
 
-        m_outfile         = NSFileHandle(forWritingAtPath : m_genFileFullPath)
-
-        if (m_outfile == nil)
+        do
         {
-            print("Error: Failed to open output file ", m_genFileFullPath)
-            m_fileOpen = false
+            m_outfile  = try NSFileHandle(forWritingToURL : m_genFileFullPath)
         }
-        else
+        catch
         {
-            m_fileOpen = true
+            print("Error: Failed to open output file ", m_genFileFullPath.absoluteString)
+            m_fileOpen = false
         }
     }
 

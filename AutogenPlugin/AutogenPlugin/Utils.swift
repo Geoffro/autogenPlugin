@@ -10,25 +10,16 @@ import Foundation
 
 class Utils
 {
-    static func buildPath(basePath : String, file : String) -> String
+    static func fileExists(path : NSURL) -> Bool
     {
-        // Most common case is to not already have the "/" at the end.
-        var newPath : String = "\(basePath)/\(file)"
+        var error : NSErrorPointer!
 
-        if basePath.hasSuffix("/")
-        {
-            newPath = "\(basePath)\(file)"
-        }
+        let result = path.checkResourceIsReachableAndReturnError(error)
 
-        return newPath
+        return result
     }
 
-    static func fileExists(path : String) -> Bool
-    {
-        return NSFileManager().fileExistsAtPath(path)
-    }
-
-    static func assertFileExists(path : String)
+    static func assertFileExists(path : NSURL)
     {
         assert(fileExists(path))
     }

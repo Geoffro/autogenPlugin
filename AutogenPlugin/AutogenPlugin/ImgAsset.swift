@@ -33,11 +33,16 @@ struct ImgDetail
 class ImgAsset
 {
     var baseName     : String!
-    var baseDirPath  : String!
+    var baseDirPath  : NSURL!
 
     var imageNames  = [ImgDetail]()
 
-    init(baseName : String, path : String)
+    convenience init(baseName : String, path : String)
+    {
+        self.init(baseName: baseName, path: NSURL(string: path)!)
+    }
+
+    init(baseName : String, path : NSURL)
     {
         self.baseName    = baseName
         self.baseDirPath = path
