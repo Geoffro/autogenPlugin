@@ -22,7 +22,7 @@ class AutogenPlugin: NSObject
         self.bundle = bundle
 
         super.init()
-        center.addObserver(self, selector: Selector("createMenuItems"), name: NSApplicationDidFinishLaunchingNotification, object: nil)
+        center.addObserver(self, selector: #selector(AutogenPlugin.createMenuItems), name: NSApplicationDidFinishLaunchingNotification, object: nil)
     }
 
     deinit
@@ -43,7 +43,7 @@ class AutogenPlugin: NSObject
 
         if item != nil
         {
-            let actionMenuItem = NSMenuItem(title:"Sync Build", action:"syncAutogenData", keyEquivalent:"")
+            let actionMenuItem = NSMenuItem(title:"Sync Build", action:#selector(AutogenPlugin.syncAutogenData), keyEquivalent:"")
             actionMenuItem.target = self
             item!.submenu!.addItem(NSMenuItem.separatorItem())
             item!.submenu!.addItem(actionMenuItem)

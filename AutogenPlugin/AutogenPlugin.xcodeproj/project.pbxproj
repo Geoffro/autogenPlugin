@@ -81,10 +81,10 @@
 		6CFEC1271C8519E1009A2096 /* AutogenPlugin */ = {
 			isa = PBXGroup;
 			children = (
+				6CFEC12B1C8519E1009A2096 /* AutogenPlugin.swift */,
 				6C95069D1C927C2700786A28 /* ImgMgr.swift */,
 				6CC9EE0E1C939449000361DF /* ImgAsset.swift */,
 				6C95069E1C927C2700786A28 /* Utils.swift */,
-				6CFEC12B1C8519E1009A2096 /* AutogenPlugin.swift */,
 				6CFEC12D1C8519E1009A2096 /* NSObject_Extension.swift */,
 				6CFEC12F1C8519E1009A2096 /* Info.plist */,
 				6C02E8741C8FAC9200A4B832 /* AutogenTypes.swift */,
